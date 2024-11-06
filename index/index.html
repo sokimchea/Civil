@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+	
+    <title>Civil Engineering Calculations</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="../images/logo.png" alt="Civil Engineering Calculations Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showSection('home')">Home</a></li>
+                    <!-- Highlighted: Dropdown for Structure -->
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Structure</a>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="showSection('beam-calculator')">Beam Calculator</a>
+                            <a href="#" onclick="showSection('column-calculator')">Column Calculator</a>
+                            <a href="#" onclick="showSection('slab-calculator')">Slab Calculator</a>
+                            <a href="#" onclick="showSection('Driven_pile_calculator')">Driven Pile Calculator</a>
+                        </div>
+                    </li>
+					
+					 <li class="dropdown">
+                        <a href="#" class="dropbtn">Pavement</a>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="showSection('sandconetest')">Sand Cone Test</a>
+                            <a href="#" onclick="showSection('concrete-composition')">Concrete Composition</a>
+							<a href="https://sokimchea.github.io/Concrete_Mix">Concrete Mix Design</a>
+                            <a href="#" onclick="showSection('Number_Truck_for_hauling_off')">Number Truck for hauling off</a>
+							<a href="#" onclick="showSection('Borrowed_Pit_Volume')">Borrowed Pit Volumn for compacted volumn</a>
+							
+                        </div>
+                    </li>
+					<li class="dropdown">
+                        <a href="#" class="dropbtn">Safety</a>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="showSection('tension_sling')">Sling force</a>
+                            
+                        </div>
+                    </li>
+					
+					<li class="dropdown">
+                        <a href="#" class="dropbtn">Productivity</a>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="showSection('Standard_Productivity')">Standard Productivity</a>
+                            <a href="#" onclick="showSection('Dump_truck_productivity_calculator')">Dump Truck Productivity Calculator</a>
+                        </div>
+                    </li>
+					
+					
+					<li class="dropdown">
+                        <a href="#" class="dropbtn">Warehouse</a>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="showSection('rebar_weight')">Rebar Weight Delivery</a>
+                        </div>
+                    </li>
+
+					
+					<li><a href="#" onclick="showSection('brickwall-calculator')">Brick Wall Calculator</a></li>
+					<li><a href="#" onclick="showSection('slab-formwork-Calculation')">Slab Formwork Calculation</a></li>              
+					<li><a href="#" onclick="showSection('Bolts_Force_Calculation')">Bolts Force Calculation</a></li>
+                    <li><a href="#" onclick="showSection('Rebar_Weight_Calculator')">Rebar Weight calculator</a></li>
+                    <li><a href="#" onclick="showSection('guidelines')">Guidelines</a></li>
+                    <li><a href="#" onclick="showSection('contact-us')">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <aside>
+            <div class="calculator-list">
+                <h2>Most Searched Calculators</h2>
+                <ul>
+                    <li><a href="#">Construction Cost Calculator</a></li>
+                    <li><a href="#">Cement Concrete Calculator</a></li>
+                    <li><a href="#">Brick Calculator</a></li>
+                    <li><a href="#">Plastering Calculator</a></li>
+                    <li><a href="#">Tank Volume Calculator</a></li>
+                    <li><a href="#">Carpet Area / Built up Area / Super built up Area Calculator</a></li>
+                    <li><a href="#">Steel Weight Calculator</a></li>
+                    <li><a href="#">Flooring Calculator</a></li>
+                    <li><a href="#">Excavation Calculator</a></li>
+                </ul>
+            </div>
+        </aside>
+        <section id="home" class="content-section">
+            <h1>Welcome to Civil Engineering Calculations</h1>
+            <p>Introduction and overview of the website, explaining its purpose and the types of calculations available.</p>
+        </section>
+			<section id="beam-calculator" class="content-section" style="display:block	;">
+				<h2>Beam Calculator</h2>
+				<h3>Rebar Calculation</h3>
+				<form id="beamForm">
+					<label for="beamWidth">Width of Beam (mm):</label>
+					<input type="number" id="beamWidth" name="beamWidth" required><br><br>
+					<label for="beamHeight">Height of Beam (mm):</label>
+					<input type="number" id="beamHeight" name="beamHeight" required><br><br>
+					<label for="bendingMoment">Maximum Bending Moment (kNm):</label>
+					<input type="number" id="bendingMoment" name="bendingMoment" required><br><br>
+					<label for="concreteStrength">Strength of Concrete (MPa):</label>
+					<input type="number" id="concreteStrength" name="concreteStrength" required><br><br>
+					<label for="rebarStrength">Strength of Rebar (MPa):</label>
+					<input type="number" id="rebarStrength" name="rebarStrength" required><br><br>
+					<label for="cover">Cover (mm):</label>
+					<input type="number" id="cover" name="cover" required><br><br>
+					<label for="spanLength">Span Length (m):</label>
+					<input type="number" id="spanLength" name="spanLength" required><br><br>
+					<button type="button" onclick="calculateRebar()">Calculate Required Rebar</button>
+				</form>
+				<p id="rebarResult"></p>
+			</section>
+			<section id="sandconetest" class="content-section" style="display:none;">
+				<form id="sandconetest">
+				<label for="maxDryDensity">Maximum Dry Density (kg/m³):</label>
+				<input type="number" id="maxDryDensity" name="maxDryDensity" required><br><br>
+
+				<label for="weightTray">Weight of Tray (kg):</label>
+				<input type="number" id="weightTray" name="weightTray" required><br><br>
+
+				<label for="weightSoilTray">Weight of Soil + Tray (kg):</label>
+				<input type="number" id="weightSoilTray" name="weightSoilTray" required><br><br>
+
+				<label for="weightSandToolBefore">Weight of Sand + Tool Before Test (kg):</label>
+				<input type="number" id="weightSandToolBefore" name="weightSandToolBefore" required><br><br>
+
+				<label for="weightSandToolAfter">Weight of Sand + Tool After Test (kg):</label>
+				<input type="number" id="weightSandToolAfter" name="weightSandToolAfter" required><br><br>
+
+				<label for="weightVolCone">Weight of Volume Cone (kg):</label>
+				<input type="number" id="weightVolCone" name="weightVolCone" required><br><br>
+
+				<label for="densitySand">Density of Sand (kg/m³):</label>
+				<input type="number" id="densitySand" name="densitySand" required><br><br>
+
+				<label for="weightTart">Weight of Tart (kg):</label>
+				<input type="number" id="weightTart" name="weightTart" required><br><br>
+
+				<label for="weightTartSample">Weight of Tart + Sample (kg):</label>
+				<input type="number" id="weightTartSample" name="weightTartSample" required><br><br>
+
+				<label for="weightTartSampleDry">Weight of Tart + Sample Dry (kg):</label>
+				<input type="number" id="weightTartSampleDry" name="weightTartSampleDry" required><br><br>
+
+				<button type="button" onclick="calculateCompaction()">Calculate</button>
+				</form>
+
+			<div id="results">
+				<h2>Results:</h2>
+				<p id="massSandHole"></p>
+				<p id="volumeSand"></p>
+				<p id="massDrySample"></p>
+				<p id="waterContentSample"></p>
+				<p id="dryMassSoil"></p>
+				<p id="dryDensityTestSoil"></p>
+				<p id="compactionRatio"></p>
+			</div>
+				
+			</section>
+			
+			<section id="brickwall-calculator" class="content-section" style="display:none;">
+				<h2>Brickwall Calulation</h2>
+				<form id="brickwall-calculator">
+					<div class="input-group">
+						<label for="wallLength">Length of Wall (m):</label>
+						<input type="number" step="0.01" id="wallLength" name="wallLength" required>
+					</div>
+
+					<div class="input-group">
+						<label for="wallHeight">Height of Wall (m):</label>
+						<input type="number" step="0.01" id="wallHeight" name="wallHeight" required>
+					</div>
+
+					<div class="input-group">
+						<label for="wallThickness">Thickness of Wall (m):</label>
+						<input type="number" step="0.01" id="wallThickness" name="wallThickness" required>
+					</div>
+					
+					<div class="input-group">
+						<label for="Brickwidth">Brick Width (m):</label>
+						<input type="number" step="0.01" id="Brickwidth" name="Brickwidth" required>
+					</div>
+					
+					<div class="input-group">
+						<label for="Bricklength">Brick Length (m):</label>
+						<input type="number" step="0.01" id="Bricklength" name="Bricklength" required>
+					</div>
+					
+					<div class="input-group">
+						<label for="Brickheight">Brick Height (m):</label>
+						<input type="number" step="0.01" id="Brickheight" name="Brickheight" required>
+					</div>
+					
+					<div class="input-group">
+						<label for="Mortarthickness">Mortar Thickness (m):</label>
+						<input type="number" step="0.01" id="Mortarthickness" name="Mortarthickness" required>
+					</div>
+					
+					<div class="input-group">
+						<label for="CementRatio">Cement Ratio:</label>
+						<input type="number" step="0.01" id="CementRatio" name="CementRatio" required>
+					</div>
+					
+					<div class="input-group">
+						<label for="SandRatio">Sand Ratio:</label>
+						<input type="number" step="0.01" id="SandRatio" name="SandRatio" required>
+					</div>
+
+					
+
+					<button type="button" onclick="calculateBricks()">Calculate</button>
+				</form>
+
+					<div id="results">
+						<h2>Results:</h2>
+						<p id="numBricks"></p>
+						<p id="qtySand"></p>
+						<p id="qtyCement"></p>
+					</div>
+			</section>
+			
+			
+			
+				
+			<section id="concrete-composition" class="content-section" style="display:none;">
+				<h2>concrete composition</h2>
+				 <form id="concrete-composition">
+					<div class="input-group">
+						<label for="strength">Desired Strength (MPa):</label>
+						<select id="strength" name="strength" required>
+							<option value="10">10 MPa</option>
+							<option value="15">15 MPa</option>
+							<option value="20">20 MPa</option>
+							<option value="25">25 MPa</option>
+							
+						</select>
+					</div>
+
+					<div class="input-group">
+						<label for="quantity">Quantity of Concrete (m³):</label>
+						<input type="number" step="0.01" id="quantity" name="quantity" required>
+					</div>
+
+					<button type="button" onclick="calculateMix()">Calculate</button>
+				</form>
+
+				<div id="results">
+					<h2>Results:</h2>
+					<p id="cementQty"></p>
+					<p id="sandQty"></p>
+					<p id="gravelQty"></p>
+					<p id="waterQty"></p>
+				</div>
+			</section>
+			
+			<section id="column-calculator" class="content-section" style="display:none;">
+				<h2>column-calculator</h2>
+				<h3>column-calculator</h3>
+				<p>Ccolumn-calculator</p>
+				<h3>Load Distribution</h3>
+				<p>Analyze the load distribution on slabs.</p>
+			</section>
+			
+			
+			<section id="slab-formwork-Calculation" class="content-section" style="display:none;">
+				<form id="scaffoldingForm">
+					<h2>Loading</h2>
+					<div class="input-group">
+						<label for="dl">DL (kN/m²):</label>
+						<input type="number" id="dl" name="dl" step="0.01" required>
+					</div>
+					<div class="input-group">
+						<label for="ll">LL (kN/m²):</label>
+						<input type="number" id="ll" name="ll" step="0.01" required>
+					</div>
+					
+					
+					<h2>Purlin Verification</h2>
+					<div class="input-group">
+						<label for="b">b (mm):</label>
+						<input type="number" id="b" name="b" step="0.01" required>
+					</div>
+					<div class="input-group">
+						<label for="h">h (mm):</label>
+						<input type="number" id="h" name="h" step="0.01" required>
+					</div>
+					<div class="input-group">
+						<label for="thickness_purlin">Thickness (mm):</label>
+						<input type="number" id="thickness_purlin" name="thickness_purlin" step="0.01" required>
+					</div>
+					<div class="input-group">
+						<label for="spacing_purlin">Spacing purlin (mm):</label>
+						<input type="number" id="spacing_purlin" name="spacing_purlin" step="0.01" required>
+					</div>
+					<div class="input-group">
+						<label for="length_purlin">Length (mm):</label>
+						<input type="number" id="length_purlin" name="length_purlin" step="0.01" required>
+					</div>
+					
+					
+
+					<h2>Material</h2>
+					<div class="input-group">
+						<label for="strength_purlin">Strength of Purlin (MPa):</label>
+						<input type="number" id="strength_purlin" name="strength_purlin" step="0.01" required>
+					</div>
+					
+					<div class="input-group">
+						<label for="strength_rafter">Strength of rafter (MPa):</label>
+						<input type="number" id="strength_rafter" name="strength_rafter" step="0.01" required>
+					</div>
+					
+					<div class="input-group">
+						<label for="strength_column_pile">Strength of pipe column (MPa):</label>
+						<input type="number" id="strength_column_pile" name="strength_column_pile" step="0.01" required>
+					</div>
+
+					<h2>Steel Pipe Column</h2>
+					<div class="input-group">
+						<label for="dia">Dia (mm):</label>
+						<input type="number" id="dia" name="dia" step="0.01" required>
+					</div>
+					<div class="input-group">
+						<label for="thickness_column">Thickness (mm):</label>
+						<input type="number" id="thickness_column" name="thickness_column" step="0.01" required>
+					</div>
+					<div class="input-group">
+						<label for="height_calculation">Height_calculation (mm):</label>
+						<input type="number" id="height_calculation" name="height_calculation" step="0.01" required>
+					</div>
+					<div class="input-group">
+						<label for="height_column">Height (mm):</label>
+						<input type="number" id="height_column" name="height_column" step="0.01" required>
+					</div>
+					<div class="input-group">
+						<label for="e">E (MPa):</label>
+						<input type="number" id="e" name="e" step="0.01" required>
+					</div>
+
+					<h2>Rafter Support Purlin</h2>
+					<div class="input-group">
+						<label for="b_rafter">B (mm):</label>
+						<input type="number" id="b_rafter" name="b_rafter" step="0.01" required>
+					</div>
+					<div class="input-group">
+						<label for="h_rafter">H (mm):</label>
+						<input type="number" id="h_rafter" name="h_rafter" step="0.01" required>
+					</div>
+					<div class="input-group">
+						<label for="thickness_rafter">Thickness (mm):</label>
+						<input type="number" id="thickness_rafter" name="thickness_rafter" step="0.01" required>
+					</div>
+					<div class="input-group">
+						<label for="spacing_rafter">Spacing Rafter (mm):</label>
+						<input type="number" id="spacing_rafter" name="spacing_rafter" step="0.01" required>
+					</div>
+					<div class="input-group">
+						<label for="length_rafter">Length (mm):</label>
+						<input type="number" id="length_rafter" name="length_rafter" step="0.01" required>
+					</div>
+					
+					
+					<button type="button" onclick="SlabFormworkCalculations()">Calculate</button>
+				</form>
+
+				<div id="results">
+				<h2>Results:</h2>
+					<p id="result1">Purlin Verification: <span id="purlin_verification"></span></p>
+					<p id="result2">Rafter Support Verification: <span id="rafter_verification"></span></p>
+					<p id="result3">Steel Pipe Column Verification: <span id="column_verification"></span></p>
+					<p id="result4">steel Pipe Column Stability: <span id="stability_verification"></span></p>
+					
+				</div>
+				
+			</section>
+			
+			<section id="slab-calculator" class="content-section" style="display:none;">
+				<h2>Slab Calculator</h2>
+				<h3>Rebar Calculation</h3>
+				<p>Calculate the required rebar for slabs based on loading conditions and slab dimensions.</p>
+				<h3>Load Distribution</h3>
+				<p>Analyze the load distribution on slabs.</p>
+			</section>
+			
+			<section id="foundation-calculator" class="content-section" style="display:none;">
+				<h2>Foundation Calculator</h2>
+				<h3>Footing Design</h3>
+				<p>Design footings based on column loads and soil conditions.</p>
+				<h3>Settlement Calculation</h3>
+				<p>Assess the potential settlement of foundations.</p>
+			</section>
+
+
+
+        <section id="Number_Truck_for_hauling_off" class="content-section" style="display:none;">
+			
+			<form id="haulingForm">
+				<div class="input-group">
+					<label for="soilVolume">Soil Excavated Volume (m³):</label>
+					<input type="number" id="soilVolume" required>
+				</div>
+				<div class="input-group">
+					<label for="bulkingFactor">Bulking Factor:</label>
+					<input type="number" id="bulkingFactor" step="0.01" required>
+				</div>
+				<div class="input-group">
+					<label for="truckCapacity">Capacity of Each Truck (m³):</label>
+					<input type="number" id="truckCapacity" required>
+				</div>
+				<div class="input-group">
+					<label for="cycleDuration">Duration for One Cycle (min):</label>
+					<input type="number" id="cycleDuration" step="0.01" required>
+				</div>
+				<div class="input-group">
+					<label for="finishDuration">Duration to Finish (days):</label>
+					<input type="number" id="finishDuration" required>
+				</div>
+				<div class="input-group">
+					<label for="workingHoursPerDay">Number of Working Hours Per Day:</label>
+					<input type="number" id="workingHoursPerDay" required>
+				</div>
+				<button type="button" onclick="calculateHauling()">Calculate</button>
+			</form>
+			<div id="results">
+				<h2>Results:</h2>
+				<p>Number of Trucks Required: <span id="numberOfTrucks">0</span></p>
+				<div id="calculationReport"></div>
+			</div>
+			
+				
+			</section>
+			
+		
+		<section id="Borrowed_Pit_Volume" class="content-section" style="display:none;">
+			<form id="compactionForm">
+				<div>
+					<label for="requiredCompaction">Required Relative Compaction (%):</label>
+					<input type="number" id="requiredCompaction" required>
+				</div>
+				<div>
+					<label for="compactedVolume">Required Compacted Volume (m³):</label>
+					<input type="number" id="compactedVolume" required>
+				</div>
+				<div>
+					<label for="borrowSoilDensity">Borrow Soil Dry Density (kg/m³):</label>
+					<input type="number" id="borrowSoilDensity" required>
+				</div>
+				<div>
+					<label for="labMaxDensity">Laboratory Maximum Dry Density (kg/m³):</label>
+					<input type="number" id="labMaxDensity" required>
+				</div>
+				<button type="button" onclick="calculateBorrowedSoil()">Calculate</button>
+			</form>
+			<div id="results">
+				<h2>Results:</h2>
+				<p>Total Volume of Borrowed Soil (m³): <span id="totalVolume">0</span></p>
+				<div id="calculationReport_borrowed_pit_volume"></div>
+			</div>
+			
+				
+		</section>
+		
+		<section id="tension_sling" class="content-section" style="display:none;">
+			<form id="tension_sling">
+			<div>
+				<label for="objectWeight">Object Weight (kg):</label>
+				<input type="number" id="objectWeight" required>
+			</div>
+			<div>
+				<label for="numberOfCables">Number of Cables:</label>
+				<input type="number" id="numberOfCables" required>
+			</div>
+			<div>
+				<label for="slingAngle">Sling Angle (degrees):</label>
+				<input type="number" id="slingAngle" required>
+			</div>
+			<button type="button" onclick="calculateTensionForce()">Calculate</button>
+		</form>
+		<div id="results">
+			<h2>Results:</h2>
+			<p>Tension Force in One Cable (N): <span id="tensionForce">0</span></p>
+		</div>
+		<div id="calculationReport"></div>
+		</section>	
+		
+		
+		<section id="Standard_Productivity" class="content-section" style="display:none;">
+			<form id="Standard_Productivity">
+				<div>
+					<label for="achieveQty">Achieve Quantity:</label>
+					<input type="number" id="achieveQty" required>
+				</div>
+				<div>
+					<label for="cycleTime">Cycle Time (minutes):</label>
+					<input type="number" id="cycleTime" required>
+				</div>
+				<div>
+					<label for="workingHours">Working Hours (hours):</label>
+					<input type="number" id="workingHours" required>
+				</div>
+				<button type="button" onclick="calculateProductionRate()">Calculate</button>
+			</form>
+			<div id="results">
+				<h2>Results:</h2>
+				<p>Daily Standard Production Rate: <span id="productionRate">0</span></p>
+			</div>
+			<div id="calculationReport"></div>
+		</section>	
+		<!-- // productivity calculator -->
+		<section id="Dump_truck_productivity_calculator" class="content-section" style="display:none;">
+			<form id="Dump_truck_productivity_calculator">
+				<div>
+					<label for="truckCapacity">Truck Capacity (cubic yards):</label>
+					<input type="number" id="truckCapacity_productivity_calculator" required>
+				</div>
+				
+				<div>
+					<label for="Excavator_bucket_volume">Excavator Bucket Volume (cubic yards):</label>
+					<input type="number" id="Excavator_bucket_volume" required>
+				</div>	
+				
+				<div>
+					<label for="loadTime">Load Time (seconds):</label>
+					<input type="number" id="loadTime" required>
+				</div>
+				<div>
+					<label for="travelDistance">Travel Distance (miles):</label>
+					<input type="number" id="travelDistance" required>
+				</div>
+				<div>
+					<label for="truckSpeed">Truck Speed (mph):</label>
+					<input type="number" id="truckSpeed" required>
+				</div>
+				<div>
+					<label for="dumpTime">Dump Time (seconds):</label>
+					<input type="number" id="dumpTime" required>
+				</div>
+				<div>
+					<label for="workingHours">Working Hours (hours/day):</label>
+					<input type="number" id="workingHours_productivity_calculator" required>
+				</div>
+				<div>
+					<label for="swellFactor">Swell Factor (%):</label>
+					<input type="number" id="swellFactor" required>
+				</div>
+				<button type="button" onclick="calculateProductivity()">Calculate</button>
+			</form>
+			<div id="results">
+				<h2>Results:</h2>
+				
+				<p>Number of Trucks Required: <span id="numberOfTrucks_productivity_calculation">0</span></p>
+			</div>
+			<div id="calculationReport_productivity_calculation"></div>
+		
+		</section>
+		
+		<!-- //warehouse rebar weight total calculation -->
+		
+		<section id="rebar_weight" class="content-section" style="display:none;">
+			
+			<form id="rebarForm">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Diameter (mm)</th>
+                        <th>Length (m)</th>
+                        <th>Number</th>
+                        <th>Weight Per Meter (kg)</th>
+                        <th>Total Weight (kg)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="rebarTableBody">
+                    <tr>
+                        <td><input type="number" class="diameter" required></td>
+                        <td><input type="number" class="length" required></td>
+                        <td><input type="number" class="number" required></td>
+                        <td class="weightPerMeter"></td>
+                        <td class="totalWeight"></td>
+                        <td><button type="button" onclick="removeRow(this)">Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" onclick="addRow()">Add Row</button>
+            <button type="button" onclick="calculateWeights()">Calculate Weights</button>
+        </form>
+        <div id="results">
+            <h2>Results:</h2>
+            <p id="totalRebarWeight"></p>
+        </div>
+		
+		</section>
+		
+		
+		 <!-- Driven Pile Calculator -->
+		 
+		 
+		<section id="Driven_pile_calculator" class="content-section" style="display:none;">
+			 <div class="container">
+			<h1>Pile Capacity Calculator</h1>
+			<form id="pileForm">
+				<div class="form-group">
+					<label for="weightOfHammer">Weight of Hammer (tons):</label>
+					<input type="number" id="weightOfHammer" name="weightOfHammer" required>
+				</div>
+				<div class="form-group">
+					<label for="heightOfDrop">Height of Drop (mm):</label>
+					<input type="number" id="heightOfDrop" name="heightOfDrop" required>
+				</div>
+				<div class="form-group">
+					<label for="penetration">Penetration per Blow (mm):</label>
+					<input type="number" id="penetration" name="penetration" required>
+				</div>
+				<div class="form-group">
+					<label for="rebound">Rebound (mm):</label>
+					<input type="number" id="rebound" name="rebound" required>
+				</div>
+				
+				<!-- <div class="form-group"> -->
+					<!-- <label for="efficiency">Efficiency:</label> -->
+					<!-- <select id="efficiency" name="efficiency" required> -->
+						<!-- <option value="0.5">>0.5 - High efficiency</option> -->
+						<!-- <option value="0.4">0.4</option> -->
+						<!-- <option value="0.32">0.32</option> -->
+						<!-- <option value="0.25">0.25</option> -->
+					<!-- </select> -->
+				<!-- </div> -->
+				
+				<div class="form-group">
+					<label for="weight_pile_n_accessory">Weight of Pile and Acessory (tons):</label>
+					<input type="number" id="weight_pile_n_accessory" name="weight_pile_n_accessory" required>
+				</div>				
+				
+				<!-- choose the e coefficient of restitution  -->
+				<div class="form-group">
+					<label for="coefficient_restitution">coefficient of restitution:</label>
+					<select id="coefficient_restitution" name="coefficient_restitution" required>
+						<option value="0.5">>Piles Driven with double action hammer - Steel Piles without driving cap</option>
+						<option value="0.5">Piles Driven with double action hammer - RC/PC Piles no helmet but with packing on top</option>
+						<option value="0.4">Piles Driven with double action hammer - RC/PC Piles no helmet with short dolly and packing</option>
+						<option value="0.4">Piles Driven with double action hammer - Timber Piles</option>
+						<option value="0.4">Piles Driven with single action hammer/drop hammer - RC/PC Piles no helmet but with packing on top</option>
+						<option value="0.32">Piles Driven with single action hammer/drop hammer - Steel Piles with driving cap</option>
+						<option value="0.25">Piles Driven with single action hammer/drop hammer - RC/PC Piles with helmet, dolly, packing</option>
+						<option value="0.25">Piles Driven with single action hammer/drop hammer - Timber piles in good condition</option>
+						<option value="0">Piles Driven with single action hammer/drop hammer - Timber piles in poor condition</option>
+					</select>
+				</div>
+				
+				<button type="button" onclick="calculatePileCapacity1()">Calculate</button>
+			</form>
+			<div class="Calculate_driven_pile_capacity" id="Calculate_driven_pile_capacity">
+				<!-- Results will be displayed here -->
+			</div>
+			</div>
+		
+		
+		</section>
+		
+		
+		<section id="guidelines" class="content-section" style="display:none;">
+            <h2>Guidelines</h2>
+            <h3>Design Standards</h3>
+            <p>Overview of relevant design standards and codes.</p>
+            <h3>Safety Factors</h3>
+            <p>Explanation of safety factors used in design.</p>
+        </section>
+        <section id="contact-us" class="content-section" style="display:none;">
+            <h2>Contact Us</h2>
+            <h3>Support</h3>
+            <p>Contact information for user support.</p>
+            <h3>Feedback</h3>
+            <p>Form for user feedback and suggestions.</p>
+        </section>
+    </main>
+ <!-- Reference to the external JavaScript file -->
+    <script src="../scripts/scripts.js"></script>
+</body>
+</html>
