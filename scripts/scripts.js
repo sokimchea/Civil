@@ -304,7 +304,7 @@ async function calculateHauling() {
     const finishDuration = parseFloat(document.getElementById('finishDuration').value);
     const workingHoursPerDay = parseFloat(document.getElementById('workingHoursPerDay').value);
 
-    const response = await fetch('http://localhost:3001/calculate-hauling', {
+    const response = await fetch('https://civil-ckv4.onrender.com/calculate-hauling', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -343,7 +343,7 @@ async function calculateBorrowedSoil() {
     const borrowSoilDensity = parseFloat(document.getElementById('borrowSoilDensity').value);
     const labMaxDensity = parseFloat(document.getElementById('labMaxDensity').value);
 
-    const response = await fetch('http://localhost:3001/calculate-borrowed-soil', {
+    const response = await fetch('https://civil-ckv4.onrender.com/calculate-borrowed-soil', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -375,7 +375,7 @@ async function calculateTensionForce() {
     const numberOfCables = parseFloat(document.getElementById('numberOfCables').value);
     const slingAngle = parseFloat(document.getElementById('slingAngle').value);
 
-    const response = await fetch('http://localhost:3001/calculate-tension', {
+    const response = await fetch('https://civil-ckv4.onrender.com/calculate-tension', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -406,7 +406,7 @@ async function calculateProductionRate() {
     const cycleTime = parseFloat(document.getElementById('cycleTime').value);
     const workingHours = parseFloat(document.getElementById('workingHours').value);
 
-    const response = await fetch('http://localhost:3001/calculate-production-rate', {
+    const response = await fetch('https://civil-ckv4.onrender.com/calculate-production-rate', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -442,7 +442,7 @@ async function calculateProductivity() {
     const workingHours = parseFloat(document.getElementById('workingHours_productivity_calculator').value);
     const swellFactor = parseFloat(document.getElementById('swellFactor').value);
 
-    const response = await fetch('http://localhost:3001/calculate-productivity', {
+    const response = await fetch('https://civil-ckv4.onrender.com/calculate-productivity', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -509,7 +509,7 @@ async function calculateWeights() {
         };
     });
 
-    const response = await fetch('http://localhost:3001/calculate-rebar-weight', {
+    const response = await fetch('https://civil-ckv4.onrender.com/calculate-rebar-weight', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -536,7 +536,7 @@ async function calculatePileCapacity1() {
             const weight_pile_n_accessory = parseFloat(document.getElementById('weight_pile_n_accessory').value);
 			const coefficient_restitution = parseFloat(document.getElementById('coefficient_restitution').value);
 
-            const response = await fetch('http://localhost:3001/calculate-pile-capacity', {
+            const response = await fetch('https://civil-ckv4.onrender.com/calculate-pile-capacity', {
                 method: 'POST',
                 headers: {
                         'Content-Type': 'application/json'
